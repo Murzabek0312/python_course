@@ -1,7 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
-name = "task1"
+name = "latex-generator-msuyundikov"
 version = "0.1.0"
-description = "Add your description here"
+description = "Библиотека для генерации latex кода"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.8"
+authors = [
+    {name = "msuyundikov", email= "murzabek1995@gmail.com"}
+]
+license = {text= "MIT"}
 dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Murzabek0312/python_course"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/latex_generator"]
+

@@ -6,9 +6,10 @@ def gen_latex(data):
     latex_code.append("\\usepackage[utf8]{inputenc}")
     latex_code.append("\\usepackage[T2A]{fontenc}")
     latex_code.append("\\usepackage[russian]{babel}")
+    latex_code.append("\\usepackage{graphicx}")
 
     latex_code.append("\\begin{document}")
-    latex_code.append(f"\\begin{{tabular}}{{{col_len} c c c}}")
+    latex_code.append(f"\\begin{{tabular}}{{{' '.join(['c'] * col_len)}}}")
 
     for d in data:
         latex_code.append(" & ".join(d) + " \\\\")
@@ -16,8 +17,7 @@ def gen_latex(data):
     latex_code.append("\\end{tabular}")
     latex_code.append("\\end{document}")
 
-    res = "\n".join(latex_code)
+    return "\n".join(latex_code)
 
-    with open('example-latex.tex', 'w', encoding='utf-8') as f:
-        f.write(res)
-
+def gen_latex_image(image_path, width="0.8\\textwidth"):
+    return f"\\includegraphics[width={width}]{{{image_path}}}"
